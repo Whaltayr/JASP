@@ -33,9 +33,12 @@ body {
   position: relative;
 }
 main{
-  display: flex;
-  flex-direction: column;
-  gap: 0 0 5rem 0;
+  
+}
+.conteiner{
+display: flex;
+  flex-direction: column; 
+  gap: 8rem;
 }
 .lang-btn{
   border: none;
@@ -55,7 +58,7 @@ a {
   color: inherit;
 }
 header {
-
+  z-index: 10;
   position: sticky;
   top: 0;
 }
@@ -65,117 +68,840 @@ nav {
   border-radius: 0 0 34px 34px;
   justify-content: space-around;
   align-items: center;
+  backdrop-filter: blur(8px);
 }
 nav .nav-links {
   display: flex;
   gap: 1.5rem;
   list-style: none;
-}
+}/* =========================================
+   HERO SECTION PREMIUM (Blobs, Glass & Float)
+========================================= */
 .hero-section {
-
-  display: flex;
-  text-align: center;
-  height: 100vh;
-  align-items: center;
-}
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem;
-  gap: 3rem;
-}
-.hero-content h1 {
-  font-size: clamp(1.5rem, 8vw, 3.5rem);
-  line-height: 1;
-}
-.hero-content p {
-  font-size: clamp(0.9rem, 4vw, 1.2rem);
-  max-width: 42rem;
-  color: var(--muted);
-}
-.hero-content > .cta_btn {
-  font-family: Space Grotesk;
-  /* background-color: var(--lavender-purple);  */
-  border: 2px solid var(--lavender-purple);
-  padding: 12px 24px;
-  border-radius: 50px;
-  max-width: 220px;
-  text-align: center;
-  color: var(--lavender-purple);
-  transition: 0.2s all ease;
-}
-.hero-content > .cta_btn:hover {
-  transform: translateY(-5px);
-    border: 2px solid var(--white);
-    color: var(--white);
-}
-.hero-image {
-}
-.hero-image img {
-  width: 100%;
-
-  /* box-sizing: border-box; */
-}
-.about-section{
-  padding: 2rem;
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; /* Mantém os blobs contidos na secção */
+  padding: 0 5%;
+  z-index: 1;
 }
-.about-section .section-header{
+
+/* --- BLOBS ANIMADOS (Ambient Glow) --- */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -1;
+  animation: floatBlob 10s infinite alternate ease-in-out;
+}
+
+.blob-left {
+  width: 40vw;
+  height: 40vw;
+  max-width: 400px;
+  max-height: 400px;
+  background: var(--lavender-purple);
+  top: 10%;
+  left: -5%;
+  opacity: 0.3;
+}
+
+.blob-right {
+  width: 45vw;
+  height: 45vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: var(--deep-sky-blue);
+  bottom: 5%;
+  right: -10%;
+  opacity: 0.2;
+  animation-delay: -5s; /* Animação dessincronizada para parecer natural */
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, -40px) scale(1.1); }
+}
+
+/* --- PAINEL GLASSMORPHISM CENTRAL --- */
+.glass-panel {
+  background: rgba(34, 34, 34, 0.4); /* Usa a tua cor base com transparência */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 4rem 3rem;
+  max-width: 850px;
+  z-index: 5;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Dá destaque ao texto sobre o vidro */
+}
+
+/* --- IMAGENS LATERAIS COM MICRO-INTERAÇÕES --- */
+.hero-img {
+  position: absolute;
+  border-radius: 24px;
+  object-fit: cover;
+  z-index: 2; /* Fica atrás do painel central, criando profundidade 3D */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição "elástica" premium */
+  animation: floatImage 6s infinite alternate ease-in-out;
+}
+
+/* Efeito magnético e brilho ao passar o rato */
+.hero-img:hover {
+  transform: scale(1.08) translateY(-10px) rotate(0deg) !important;
+  box-shadow: 0 20px 40px rgba(124, 110, 185, 0.4); /* Brilho roxo */
+  z-index: 10; /* Vem para a frente ao interagir */
+  cursor: pointer;
+}
+
+.floating-left {
+  width: 280px;
+  height: 380px;
+  left: 4%;
+  top: 20%;
+  transform: rotate(-4deg);
+}
+
+.floating-right {
+  width: 320px;
+  height: 420px;
+  right: 4%;
+  bottom: 15%;
+  transform: rotate(4deg);
+  animation-delay: -3s;
+}
+.cta_btn{
+  background-color: var(--lavender-purple);
+  padding: 12px 32px;
+  border-radius: 24px;
+}
+@keyframes floatImage {
+  0% { margin-top: 0px; }
+  100% { margin-top: -20px; }
+}
+
+/* --- MEDIA QUERIES (Redução Inteligente) --- */
+@media (max-width: 1200px) {
+  /* No iPad, as imagens ficam menores e entram um pouco para trás do painel */
+  .floating-left { width: 220px; height: 300px; left: -2%; }
+  .floating-right { width: 240px; height: 320px; right: -2%; }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 100px; /* Compensa o menu mobile */
+  }
+
+  .glass-panel {
+    padding: 2rem 1.5rem;
+    background: rgba(34, 34, 34, 0.6); /* Mais opaco no mobile para leitura */
+  }
+
+  /* No mobile, as imagens transformam-se em textura de fundo */
+  .hero-img {
+    opacity: 0.25;
+    filter: blur(4px);
+    z-index: 1;
+    pointer-events: none; /* Desativa o hover no mobile */
+  }
+
+  .floating-left { width: 180px; height: 250px; top: 10%; left: -5%; }
+  .floating-right { width: 200px; height: 280px; bottom: 5%; right: -5%; }
+}/* =========================================
+   SECÇÃO SOBRE (Estilo Dribbble Split-Layout)
+========================================= */
+.about-section {
+    padding: 8rem 5%;
+    position: relative;
+    z-index: 2;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+/* --- LADO ESQUERDO: COPY --- */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.badge-text {
+    background: rgba(124, 110, 185, 0.15); /* Fundo lavanda translúcido */
+    color: var(--lavender-purple);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(124, 110, 185, 0.3);
+}
+
+.about-content h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--white);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--deep-sky-blue), var(--lavender-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.8;
+}
+
+/* Métricas em linha */
+.about-stats-inline {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+}
+
+.stat-item h4 {
+    font-size: 2rem;
+    color: var(--white);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.stat-item span {
+    font-size: 0.9rem;
+    color: var(--taupe);
+}
+
+.divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- LADO DIREITO: MOSAICO VISUAL --- */
+.about-visuals {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.image-card {
+    width: 85%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.05); /* Zoom suave na foto */
+}
+
+/* Cartão Glassmorphism Flutuante sobre a imagem */
+.glass-card {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    background: rgba(52, 49, 45, 0.6); /* --graphite com transparência */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    animation: floatImage 5s infinite alternate ease-in-out;
+}
+
+.glass-card .icon-wrap {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem;
+    border-radius: 12px;
+}
+
+.glass-card h5 {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.glass-card p {
+    color: var(--deep-sky-blue);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 968px) {
+    .about-container {
+        grid-template-columns: 1fr; /* Passa para 1 coluna no tablet/mobile */
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .about-content {
+        align-items: center;
+    }
+
+    .about-content p {
+        margin: 0 auto;
+    }
+
+    .about-stats-inline {
+        justify-content: center;
+    }
+
+    .about-visuals {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .image-card {
+        width: 100%;
+    }
+
+    .glass-card {
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza o cartão flutuante no mobile */
+        bottom: -20px;
+        width: 90%;
+        justify-content: center;
+    }
+}
+/* =========================================
+   SECÇÃO SERVIÇOS (Bento Grid Dribbble Style)
+========================================= */
+.services-section {
+    padding: 8rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.services-section .section-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.services-section .section-header h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--white);
+}
+
+.services-section .section-header p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 500px;
+}
+
+/* --- A GRELHA BENTO --- */
+.bento-grid {
+    display: grid;
+    max-width: 1000px; /* Um pouco mais largo para os cartões respirarem */
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(220px, auto) minmax(220px, auto);
+    gap: 1.5rem;
+    grid-template-areas: 
+      "box1 box1 box2"
+      "box3 box4 box4";
+}
+
+/* --- ESTILO BASE DOS CARTÕES (Glassmorphism) --- */
+.bento-card {
+    background: rgba(30, 28, 26, 0.4); /* Fundo muito escuro e translúcido */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 24px; /* Bordas mais arredondadas (meta atual) */
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden; /* Mantém o brilho contido dentro do cartão */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empurra o conteúdo para baixo */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- EFEITO NEON GLOW NO HOVER --- */
+.bento-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(124, 110, 185, 0.4); /* Borda lavanda acende */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(124, 110, 185, 0.1); /* Brilho exterior suave */
+}
+
+/* --- BRILHOS AMBIENTES INTERNOS --- */
+.card-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 0;
+    opacity: 0.15;
+    transition: all 0.5s ease;
+}
+
+.glow-purple {
+    width: 150px; height: 150px;
+    background: var(--lavender-purple);
+    top: -30px; right: -30px;
+}
+
+.glow-blue {
+    width: 120px; height: 120px;
+    background: var(--deep-sky-blue);
+    bottom: -20px; left: -20px;
+}
+
+.glow-purple-large {
+    width: 250px; height: 250px;
+    background: var(--lavender-purple);
+    top: -50px; right: 10%;
+    opacity: 0.1;
+}
+
+/* Intensifica o brilho interno quando passas o rato */
+.bento-card:hover .card-glow {
+    opacity: 0.35;
+    transform: scale(1.2);
+}
+
+/* --- CONTEÚDO DO CARTÃO --- */
+.bento-content {
+    position: relative;
+    z-index: 2; /* Garante que o texto fica acima do brilho */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+.bento-card h3 {
+    font-size: 1.4rem;
+    color: var(--white);
+    line-height: 1.3;
+}
+
+.bento-card p {
+    font-size: 0.95rem;
+    color: var(--taupe);
+}
+
+.card-icon img {
+    height: 44px;
+    width: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* Dá profundidade aos teus ícones */
+}
+
+/* Layout específico para o cartão 4 (Soluções Tech) */
+.bento-wide .bento-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.bento-wide .tech-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.bento-wide h3 {
+    font-size: 1.8rem; /* Título maior para o cartão de destaque */
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+          "box1"
+          "box2"
+          "box3"
+          "box4";
+        grid-template-rows: auto;
+    }
+
+    .bento-wide .bento-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* =========================================
+   SECÇÃO DE PREÇOS (Glassmorphism & Glow)
+========================================= */
+.pricing-section {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.pricing-section .section-header {
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.about-section .image-about img {
-  height: 400px;
-  border-radius: 24px;
 
+.pricing-section h2 {
+  font-size: clamp(1.5rem, 8vw, 2.5rem);
+  color: var(--white);
 }
-.about-section h2{
-  font-size: clamp(1.5rem, 8vw, 2rem);
-  line-height: 1;
-}
-.about-section p{
-  font-size: clamp(0.9rem, 4vw, 1rem);
-  max-width: 42rem;
-  color: var(--muted);  
-}
-/*??????????????????SERVICES??????????????????*/
 
-.services-section{
-padding: 2rem;
-display: flex;
-flex-direction: column;
-gap: 3rem;
+.pricing-section p {
+  color: var(--muted);
 }
-.services-section .section-header h2{
-  font-size: clamp(1.5rem, 8vw, 2rem);
-  line-height: 1;
-  color: var(--taupe);
-}
-.services-section .section-header p{
-  font-size: clamp(0.9rem, 4vw, 1rem);
-  max-width: 42rem;
-  color: var(--muted); 
-}
-.bento-grid{
+
+.pricing-grid {
   display: grid;
-  max-width: 750px;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-template-rows: 200px 200px 200px;  */
-  gap: 1rem;
-  grid-template-areas: 
-  "box1 box1 box2"
-  "box3 box4 box4";
+  gap: 2rem;
+  max-width: 1100px;
+  width: 100%;
 }
-.bento-card{
- background: linear-gradient(45deg, hsla(216, 7%, 15%, 1) 0%, hsla(34, 7%, 19%, 1) 100%);
- height: 200px;
- padding: 1rem;
- border-radius: 16px;
- & .card-icon img{
-  height: 44px;
- }
+
+.pricing-card {
+  background: rgba(52, 49, 45, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--lavender-purple);
+  box-shadow: 0 15px 35px rgba(124, 110, 185, 0.15);
+}
+
+.pricing-card h3 {
+  font-size: 1.5rem;
+  color: var(--deep-sky-blue);
+  border-bottom: 1px solid var(--graphite);
+  padding-bottom: 1rem;
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1; /* Empurra o botão para o fundo */
+}
+
+.pricing-features li {
+  font-size: 0.95rem;
+  color: var(--white-smoke);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.pricing-features li::before {
+  content: "✦";
+  color: var(--lavender-purple);
+}
+
+/* Destaque para o Pacote Estratégico */
+.pricing-card.highlighted {
+  background: linear-gradient(145deg, rgba(52, 49, 45, 0.6), rgba(20, 17, 15, 0.9));
+  border: 1px solid var(--lavender-purple);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(124, 110, 185, 0.2);
+}
+
+.pricing-card.highlighted:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 40px rgba(124, 110, 185, 0.4);
+}
+
+.badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--lavender-purple);
+  color: var(--white);
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Botões da Tabela de Preços */
+.pricing-card .cta_btn {
+  text-align: center;
+  padding: 12px;
+  border-radius: 50px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.pricing-card .outline_btn {
+  background: transparent;
+  border: 1px solid var(--taupe);
+  color: var(--white);
+}
+
+.pricing-card .outline_btn:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pricing-card.highlighted .cta_btn {
+  background: var(--lavender-purple);
+  color: var(--white);
+  border: none;
+}
+
+.pricing-card.highlighted .cta_btn:hover {
+  background: var(--deep-sky-blue);
+  box-shadow: 0 0 15px var(--deep-sky-blue);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+  border-top: 1px solid var(--graphite);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  color: var(--taupe);
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   RESPONSIVIDADE & MENU MOBILE
+========================================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 100;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 2px;
+  background-color: var(--white-smoke);
+  transition: all 0.3s ease;
+}
+
+/* --- CORREÇÃO DO ALINHAMENTO DO HEADER --- */
+.nav-actions {
+    display: flex;
+    flex-direction: row; /* Força os elementos a ficarem lado a lado */
+    align-items: center; /* Centra verticalmente */
+    justify-content: flex-end;
+    gap: 1.5rem; /* Espaçamento entre o toggle e o botão */
+    flex-wrap: nowrap; /* Impede que caiam para a linha de baixo */
+}
+
+/* No mobile, garantimos que não colapsam */
+@media (max-width: 900px) {
+    .nav-actions {
+        gap: 1rem;
+    }
+    .nav-actions .nav-cta {
+        display: none; /* Escondemos o botão grande no mobile para dar espaço ao menu */
+    }
+}
+
+@media (max-width: 900px) {
+  /* Header Mobile */
+  .nav-actions .lang-btn, 
+  .nav-actions .nav-cta {
+    display: none; /* Esconde botões no mobile para limpar o design */
+  }
+   .nav-actions {
+        gap: 1rem;
+    }
+    .nav-actions .nav-cta {
+        display: none; /* Escondemos o botão grande no mobile para dar espaço ao menu */
+    }
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(52, 49, 45, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Esconde o menu com estilo */
+    transition: clip-path 0.4s ease-in-out;
+  }
+
+  nav .nav-links.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Mostra o menu */
+  }
+
+  /* Bento Grid Mobile */
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "box1"
+      "box2"
+      "box3"
+      "box4";
+  }
+
+  .bento-card {
+    height: auto; /* Permite que os cartões cresçam conforme o texto */
+    min-height: 200px;
+  }
+
+  /* Pricing Grid Mobile */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card.highlighted {
+    transform: scale(1); /* Remove o scale no mobile para não quebrar a tela */
+  }
+  
+  .pricing-card.highlighted:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Footer Mobile */
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   TOGGLE DE IDIOMA (Premium Switch)
+========================================= */
+.lang-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 4px;
+    cursor: pointer;
+    width: 80px;
+    height: 36px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.lang-option {
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--taupe);
+    z-index: 2;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+
+.lang-option.active {
+    color: var(--white);
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: 26px;
+    background: linear-gradient(135deg, var(--lavender-purple), var(--deep-sky-blue));
+    border-radius: 50px;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 8px rgba(124, 110, 185, 0.4);
+}
+
+/* Classe que o JS vai adicionar quando estiver em Inglês */
+.lang-toggle.en-active .toggle-slider {
+    transform: translateX(100%);
 }

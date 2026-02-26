@@ -1,155 +1,306 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JASP Labs - Agência Digital e Soluções Tecnológicas</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <h1 class="logo">JASP Labs</h1>
-            <ul class="nav-links">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#precos">Pacotes</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="lang-btn">EN | PT</button>
-                <a href="#contacto" class="cta_btn nav-cta">Fale Connosco</a>
-                
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+  <header>
+    <nav>
+        <h1 class="logo">JASP Labs</h1>
+        <ul class="nav-links">
+            <li><a href="#inicio" data-i18n="nav_home">Início</a></li>
+            <li><a href="#sobre" data-i18n="nav_about">Sobre Nós</a></li>
+            <li><a href="#servicos" data-i18n="nav_services">Serviços</a></li>
+            <li><a href="#precos" data-i18n="nav_pricing">Pacotes</a></li>
+            <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="lang-toggle" id="lang-toggle">
+                <span class="lang-option pt active">PT</span>
+                <span class="lang-option en">EN</span>
+                <div class="toggle-slider"></div>
+            </div>
+            
+            <a href="#contacto" class="cta_btn nav-cta" data-i18n="nav_cta">Fale Connosco</a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="conteiner">
+        <section id="inicio" class="hero-section">
+            <div class="blob blob-left"></div>
+            <div class="blob blob-right"></div>
+            <img src="https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=400&auto=format&fit=crop" alt="IA Visual" class="hero-img floating-left">
+            
+            <div class="hero-content glass-panel">
+                <h1 data-i18n="hero_title">Estratégia Digital e Inovação para Marcas de Alto Impacto.</h1>
+                <p data-i18n="hero_desc">Ajudamos startups, empreendedores e empresas em crescimento a construírem marcas fortes e posicionarem-se de forma estratégica no ambiente digital com design premium e IA.</p>
+                <a href="#precos" class="cta_btn cta_large" data-i18n="hero_btn">Ver Nossas Soluções</a>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=400&auto=format&fit=crop" alt="Tecnologia" class="hero-img floating-right">
+        </section>
+
+        <section id="sobre" class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <span class="badge-text" data-i18n="about_badge">Quem Somos</span>
+                    <h2>
+                        <span data-i18n="about_title_1">Modernos.</span><br>
+                        <span class="gradient-text" data-i18n="about_title_2">Inteligentes.</span><br>
+                        <span data-i18n="about_title_3">Ousados.</span>
+                    </h2>
+                    <p data-i18n="about_desc">Não somos uma agência genérica. Unimos criatividade, pensamento estratégico e inovação tecnológica para desenvolver identidades visuais e soluções que geram resultados reais e eliminam a burocracia do seu negócio.</p>
+                    
+                    <div class="about-stats-inline">
+                        <div class="stat-item">
+                            <h4>+50</h4>
+                            <span data-i18n="about_stat1">Projetos Entregues</span>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <span data-i18n="about_stat2">Foco em Inovação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-visuals">
+                    <div class="visual-card image-card">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Equipa">
+                    </div>
+                    <div class="visual-card glass-card float-card">
+                        <div class="icon-wrap">🚀</div>
+                        <div>
+                            <h5 data-i18n="about_card_title">Escalabilidade</h5>
+                            <p data-i18n="about_card_desc">Operações automatizadas</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </section>
 
-    <main>
-        <div class="ambient-glow glow-1"></div>
-        <div class="ambient-glow glow-2"></div>
+        <section id="servicos" class="services-section">
+            <div class="section-header">
+                <span class="badge-text" data-i18n="srv_badge">Expertise</span>
+                <h2 data-i18n="srv_title">Ecossistema de Soluções</h2>
+                <p data-i18n="srv_desc">Soluções completas desde a conceção da marca até à automação tecnológica.</p>
+            </div>
 
-        <div class="conteiner">
+            <div class="bento-grid">
+                <div class="bento-card bento-branding" style="grid-area: box1;">
+                    <div class="card-glow glow-purple"></div>
+                    <div class="bento-content">
+                        <div class="card-icon"><img src="assets/img/branding.png" alt="Branding"></div>
+                        <h3 data-i18n="srv_1_title">Branding e Identidade Visual</h3>
+                        <p data-i18n="srv_1_desc">Criamos marcas magnéticas que se destacam no ruído digital e comunicam autoridade.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-strategy" style="grid-area: box2;">
+                    <div class="card-glow glow-blue"></div>
+                    <div class="bento-content">
+                        <div class="card-icon"><img src="assets/icon/target-svgrepo-com.svg" alt="Estratégia"></div>
+                        <h3 data-i18n="srv_2_title">Estratégia Digital</h3>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-design" style="grid-area: box3;">
+                    <div class="card-glow glow-blue"></div>
+                    <div class="bento-content">
+                        <div class="card-icon"><img src="assets/icon/pallete-2-svgrepo-com.svg" alt="Design"></div>
+                        <h3 data-i18n="srv_3_title">Design Criativo e Web Design</h3>
+                    </div>
+                </div>
+
+                <div class="bento-card bento-tech bento-wide" style="grid-area: box4;">
+                    <div class="card-glow glow-purple-large"></div>
+                    <div class="bento-content">
+                        <div class="card-icon"><img src="assets/icon/rocket-innovation-space-svgrepo-com (1).svg" alt="Inovação"></div>
+                        <div class="tech-text">
+                            <h3 data-i18n="srv_4_title">Soluções Tecnológicas e Inovação</h3>
+                            <p data-i18n="srv_4_desc">Implementação de ferramentas avançadas e IA para otimizar processos e modernizar a operação da sua empresa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="precos" class="pricing-section">
+            <div class="section-header">
+                <h2 data-i18n="prc_title">Soluções à Medida</h2>
+                <p data-i18n="prc_desc">Pacotes desenhados para o momento exato da sua empresa.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 data-i18n="prc_ess_title">Pacote Essencial</h3>
+                    <ul class="pricing-features">
+                        <li data-i18n="prc_ess_f1">Criação de site ou landing page</li>
+                        <li data-i18n="prc_ess_f2">Identidade visual + elementos básicos</li>
+                        <li data-i18n="prc_ess_f3">Integração simples com IA (formulário inteligente, chatbot básico)</li>
+                    </ul>
+                    <a href="#contacto" class="cta_btn outline_btn" data-i18n="prc_ess_btn">Solicitar Proposta</a>
+                </div>
+
+                <div class="pricing-card highlighted">
+                    <div class="badge" data-i18n="prc_str_badge">Mais Popular</div>
+                    <h3 data-i18n="prc_str_title">Pacote Estratégico</h3>
+                    <ul class="pricing-features">
+                        <li data-i18n="prc_str_f1">Branding completo + consultoria de IA</li>
+                        <li data-i18n="prc_str_f2">Sites interativos e automações complexas</li>
+                        <li data-i18n="prc_str_f3">Agentes de IA para otimizar processos da empresa</li>
+                        <li data-i18n="prc_str_f4">Consultoria estratégica para aplicação de IA</li>
+                    </ul>
+                    <a href="#contacto" class="cta_btn" data-i18n="prc_str_btn">Agendar Reunião</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 data-i18n="prc_prm_title">Pacote Premium</h3>
+                    <ul class="pricing-features">
+                        <li data-i18n="prc_prm_f1">Desenvolvimento de SaaS ou produto digital</li>
+                        <li data-i18n="prc_prm_f2">Automação avançada e agentes de IA sob medida</li>
+                        <li data-i18n="prc_prm_f3">Estratégia completa de marketing digital e presença online</li>
+                    </ul>
+                    <a href="#contacto" class="cta_btn outline_btn" data-i18n="prc_prm_btn">Falar com Especialista</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    <div class="conteiner footer-content">
+        <h2 class="logo">JASP Labs</h2>
+        <p data-i18n="footer_copy">&copy; 2026 JASP Labs. Inovação e Estratégia Digital.</p>
+    </div>
+</footer>
+
+
+
+  <script>
+    // Menu Mobile
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if(mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // --- SISTEMA DE TRADUÇÃO ---
+    const translations = {
+        pt: {
+            nav_home: "Início", nav_about: "Sobre Nós", nav_services: "Serviços", nav_pricing: "Pacotes", nav_contact: "Contacto", nav_cta: "Fale Connosco",
             
-            <section id="inicio" class="hero-section">
-                <div class="hero-content">
-                    <h1>Estratégia Digital e Inovação para Marcas de Alto Impacto.</h1>
-                    <p>Ajudamos startups, empreendedores e empresas em crescimento a construírem marcas fortes e posicionarem-se de forma estratégica no ambiente digital com design premium e IA.</p>
-                    <a href="#precos" class="cta_btn cta_large">Ver Nossas Soluções</a>
-                </div>
-            </section>
-
-            <section id="sobre" class="about-section">
-                <div class="section-header">
-                    <h2>Modernos. Inteligentes. Ousados.</h2>
-                    <p>Não somos uma agência genérica. Unimos criatividade, pensamento estratégico e inovação tecnológica para desenvolver identidades visuais e soluções que geram resultados reais e eliminam a burocracia do seu negócio.</p>
-                </div>
-                <!-- <div class="image-about">
-                    <img src="assets/img/about.png" alt="about-section">
-                </div> -->
-            </section>
+            hero_title: "Estratégia Digital e Inovação para Marcas de Alto Impacto.",
+            hero_desc: "Ajudamos startups, empreendedores e empresas em crescimento a construírem marcas fortes e posicionarem-se de forma estratégica no ambiente digital com design premium e IA.",
+            hero_btn: "Ver Nossas Soluções",
             
-            <section id="servicos" class="services-section">
-                <div class="section-header">
-                    <h2>O Que Fazemos</h2>
-                    <p>Soluções completas desde a conceção da marca até à automação tecnológica.</p>
-                </div>
-
-                <div class="bento-grid">
-                    <div class="bento-card" style="grid-area: box1;">
-                        <div class="bento-content">
-                            <div class="card-icon"><img src="assets/img/branding.png" alt=""></div>
-                            <h3>Branding e Identidade Visual</h3>
-                        </div>
-                    </div>
-                    <div class="bento-card" style="grid-area: box2;">
-                        <div class="bento-content">
-                            <div class="card-icon"><img src="assets/icon/target-svgrepo-com.svg" alt=""></div>
-                            <h3>Estratégia Digital</h3>
-                        </div>
-                    </div>
-                    <div class="bento-card" style="grid-area: box3;">
-                        <div class="bento-content">
-                            <div class="card-icon"><img src="assets/icon/pallete-2-svgrepo-com.svg" alt=""></div>
-                            <h3>Design Criativo e Web Design</h3>
-                        </div>
-                    </div>
-                    <div class="bento-card bento-wide" style="grid-area: box4;">
-                        <div class="bento-content">
-                            <div class="card-icon"><img src="assets/icon/rocket-innovation-space-svgrepo-com (1).svg" alt="icon "></div>
-                            <h3>Soluções Tecnológicas e Inovação</h3>
-                            <p>Implementação de ferramentas avançadas e IA para otimizar processos e modernizar a operação da sua empresa.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="precos" class="pricing-section">
-                <div class="section-header">
-                    <h2>Soluções à Medida</h2>
-                    <p>Pacotes desenhados para o momento exato da sua empresa.</p>
-                </div>
-
-                <div class="pricing-grid">
-                    <div class="pricing-card">
-                        <h3>Pacote Essencial</h3>
-                        <ul class="pricing-features">
-                            <li>Criação de site ou landing page</li>
-                            <li>Identidade visual + elementos básicos</li>
-                            <li>Integração simples com IA (formulário inteligente, chatbot básico)</li>
-                        </ul>
-                        <a href="#contacto" class="cta_btn outline_btn">Solicitar Proposta</a>
-                    </div>
-
-                    <div class="pricing-card highlighted">
-                        <div class="badge">Mais Popular</div>
-                        <h3>Pacote Estratégico</h3>
-                        <ul class="pricing-features">
-                            <li>Branding completo + consultoria de IA</li>
-                            <li>Sites interativos e automações complexas</li>
-                            <li>Agentes de IA para otimizar processos da empresa</li>
-                            <li>Consultoria estratégica para aplicação de IA</li>
-                        </ul>
-                        <a href="#contacto" class="cta_btn">Agendar Reunião</a>
-                    </div>
-
-                    <div class="pricing-card">
-                        <h3>Pacote Premium</h3>
-                        <ul class="pricing-features">
-                            <li>Desenvolvimento de SaaS ou produto digital</li>
-                            <li>Automação avançada e agentes de IA sob medida</li>
-                            <li>Estratégia completa de marketing e presença online</li>
-                        </ul>
-                        <a href="#contacto" class="cta_btn outline_btn">Falar com Especialista</a>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <footer>
-        <div class="conteiner footer-content">
-            <h2 class="logo">JASP Labs</h2>
-            <p>&copy; 2026 JASP Labs. Inovação e Estratégia Digital.</p>
-        </div>
-    </footer>
-
-    <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        if(mobileMenu && navLinks) {
-            mobileMenu.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
+            about_badge: "Quem Somos",
+            about_title_1: "Modernos.", about_title_2: "Inteligentes.", about_title_3: "Ousados.",
+            about_desc: "Não somos uma agência genérica. Unimos criatividade, pensamento estratégico e inovação tecnológica para desenvolver identidades visuais e soluções que geram resultados reais e eliminam a burocracia do seu negócio.",
+            about_stat1: "Projetos Entregues", about_stat2: "Foco em Inovação",
+            about_card_title: "Escalabilidade", about_card_desc: "Operações automatizadas",
+            
+            srv_badge: "Expertise", srv_title: "Ecossistema de Soluções", srv_desc: "Soluções completas desde a conceção da marca até à automação tecnológica.",
+            srv_1_title: "Branding e Identidade Visual", srv_1_desc: "Criamos marcas magnéticas que se destacam no ruído digital e comunicam autoridade.",
+            srv_2_title: "Estratégia Digital", srv_3_title: "Design Criativo e Web Design",
+            srv_4_title: "Soluções Tecnológicas e Inovação", srv_4_desc: "Implementação de ferramentas avançadas e IA para otimizar processos e modernizar a operação da sua empresa.",
+            
+            prc_title: "Soluções à Medida", prc_desc: "Pacotes desenhados para o momento exato da sua empresa.",
+            prc_ess_title: "Pacote Essencial", prc_ess_f1: "Criação de site ou landing page", prc_ess_f2: "Identidade visual + elementos básicos", prc_ess_f3: "Integração simples com IA (formulário inteligente, chatbot básico)", prc_ess_btn: "Solicitar Proposta",
+            prc_str_badge: "Mais Popular", prc_str_title: "Pacote Estratégico", prc_str_f1: "Branding completo + consultoria de IA", prc_str_f2: "Sites interativos e automações complexas", prc_str_f3: "Agentes de IA para otimizar processos da empresa", prc_str_f4: "Consultoria estratégica para aplicação de IA", prc_str_btn: "Agendar Reunião",
+            prc_prm_title: "Pacote Premium", prc_prm_f1: "Desenvolvimento de SaaS ou produto digital", prc_prm_f2: "Automação avançada e agentes de IA sob medida", prc_prm_f3: "Estratégia completa de marketing digital e presença online", prc_prm_btn: "Falar com Especialista",
+            
+            footer_copy: "© 2026 JASP Labs. Inovação e Estratégia Digital."
+        },
+        en: {
+            nav_home: "Home", nav_about: "About Us", nav_services: "Services", nav_pricing: "Packages", nav_contact: "Contact", nav_cta: "Let's Talk",
+            
+            hero_title: "Digital Strategy and Innovation for High-Impact Brands.",
+            hero_desc: "We help startups, entrepreneurs, and growing businesses build strong brands and position themselves strategically in the digital environment with premium design and AI.",
+            hero_btn: "View Our Solutions",
+            
+            about_badge: "Who We Are",
+            about_title_1: "Modern.", about_title_2: "Intelligent.", about_title_3: "Bold.",
+            about_desc: "We are not a generic agency. We unite creativity, strategic thinking, and technological innovation to develop visual identities and solutions that generate real results and eliminate bureaucracy from your business.",
+            about_stat1: "Delivered Projects", about_stat2: "Focus on Innovation",
+            about_card_title: "Scalability", about_card_desc: "Automated operations",
+            
+            srv_badge: "Expertise", srv_title: "Ecosystem of Solutions", srv_desc: "Complete solutions from brand conception to technological automation.",
+            srv_1_title: "Branding and Visual Identity", srv_1_desc: "We create magnetic brands that stand out in the digital noise and communicate authority.",
+            srv_2_title: "Digital Strategy", srv_3_title: "Creative Design and Web Design",
+            srv_4_title: "Technological Solutions and Innovation", srv_4_desc: "Implementation of advanced tools and AI to optimize processes and modernize your company's operation.",
+            
+            prc_title: "Tailored Solutions", prc_desc: "Packages designed for the exact stage of your company.",
+            prc_ess_title: "Essential Package", prc_ess_f1: "Website or landing page creation", prc_ess_f2: "Visual identity + basic elements", prc_ess_f3: "Simple AI integration (smart form, basic chatbot)", prc_ess_btn: "Request Proposal",
+            prc_str_badge: "Most Popular", prc_str_title: "Strategic Package", prc_str_f1: "Complete branding + AI consulting", prc_str_f2: "Interactive sites and complex automations", prc_str_f3: "AI agents to optimize company processes", prc_str_f4: "Strategic consulting for AI application", prc_str_btn: "Schedule Meeting",
+            prc_prm_title: "Premium Package", prc_prm_f1: "SaaS or digital product development", prc_prm_f2: "Advanced automation and custom AI agents", prc_prm_f3: "Complete digital marketing strategy and online presence", prc_prm_btn: "Talk to an Expert",
+            
+            footer_copy: "© 2026 JASP Labs. Innovation and Digital Strategy."
         }
-    </script>
+    };
+
+    const langToggle = document.getElementById('lang-toggle');
+    const ptOption = document.querySelector('.lang-option.pt');
+    const enOption = document.querySelector('.lang-option.en');
+    let currentLang = localStorage.getItem('jasp_lang') || 'pt';
+
+    function updateLanguage(lang) {
+        const elements = document.querySelectorAll('[data-i18n]');
+        
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            el.style.opacity = 0;
+            setTimeout(() => {
+                el.textContent = translations[lang][key] || el.textContent;
+                el.style.opacity = 1;
+            }, 200);
+        });
+
+        if(lang === 'en') {
+            langToggle.classList.add('en-active');
+            enOption.classList.add('active');
+            ptOption.classList.remove('active');
+        } else {
+            langToggle.classList.remove('en-active');
+            ptOption.classList.add('active');
+            enOption.classList.remove('active');
+        }
+        localStorage.setItem('jasp_lang', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            el.style.transition = 'opacity 0.2s ease';
+        });
+        updateLanguage(currentLang);
+    });
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        updateLanguage(currentLang);
+    });
+</script>
 </body>
+
 </html>
